@@ -1,0 +1,84 @@
+1. Metode Bazate pe Statistici Univariate
+
+Aceste metode selectează caracteristicile pe baza scorurilor statistice, care măsoară puterea relației dintre fiecare caracteristică independentă și variabila țintă.
+SelectKBest
+
+Utilizăm SelectKBest pentru a selecta caracteristicile pe baza testului F pentru regresie (f_regression).
+
+python
+
+from sklearn.feature_selection import SelectKBest, f_regression
+
+# Caracteristicile și ținta
+X = train.drop('SalePrice', axis=1)
+y = train['SalePrice']
+
+# Selectăm cele mai bune 20 de caracteristici
+selector = SelectKBest(score_func=f_regression, k=20)
+X_new = selector.fit_transform(X, y)
+selected_features = X.columns[selector.get_support()]
+
+print("Cele mai relevante caracteristici:", selected_features)
+
+2. Metode Bazate pe Model
+
+Aceste metode folosesc un model pentru a determina importanța caracteristicilor. Random Forest este o alegere populară pentru acest tip de selecție datorită capacității sale de a evalua importanța caracteristicilor în mod eficient.
+Random Forest Feature Importance
+
+Antrenăm un model Random Forest și folosim importanța caracteristicilor pentru a selecta cele mai relevante.
+
+python
+
+from sklearn.ensemble import RandomForestRegressor
+
+# Antrenăm modelul Random Forest
+model = RandomForestRegressor(n_estimators=100, random_state=42)
+model.fit(X, y)
+
+# Obținem importanța caracteristicilor
+importances = model.feature_importances_
+feature_importance = pd.DataFrame({'Feature': X.columns, 'Importance': importances})
+feature_importance = feature_importance.sort_values(by='Importance', ascending=False)
+
+# Selectăm primele 20 de caracteristici
+top_features = feature_importance.head(20).Feature.values
+print("Cele mai relevante caracteristici:", top_features)
+
+3. Metode Recursive de Eliminare a Caracteristicilor (RFE)
+
+Recursive Feature Elimination (RFE) este o metodă iterativă care ajustează modelul în mod repetat și elimină caracteristicile cele mai puțin importante până când este atins numărul dorit de caracteristici.
+
+python
+
+from sklearn.feature_selection import RFE
+from sklearn.linear_model import LinearRegression
+
+# Modelul de bază
+model = LinearRegression()
+
+# Aplicăm RFE pentru a selecta cele mai bune 20 de caracteristici
+selector = RFE(model, n_features_to_select=20, step=1)
+selector = selector.fit(X, y)
+selected_features_rfe = X.columns[selector.get_support()]
+
+print("Cele mai relevante caracteristici prin RFE:", selected_features_rfe)
+
+4. Selecția Caracteristicilor Bazată pe PCA (Principal Component Analysis)
+
+PCA reduce dimensiunea datelor prin transformarea caracteristicilor într-un set de componente principale, păstrând cât mai mult din variația totală a datelor.
+
+python
+
+from sklearn.decomposition import PCA
+
+# Normalizăm datele înainte de aplicarea PCA
+from sklearn.preprocessing import StandardScaler
+scaler = StandardScaler()
+X_scaled = scaler.fit_transform(X)
+
+# Aplicăm PCA pentru a reduce dimensiunea la 20 de componente
+pca = PCA(n_components=20)
+X_pca = pca.fit_transform(X_scaled)
+
+# Componentele principale pot fi considerate caracteristici noi
+print("Variance Ratio pentru primele 20 de componente principale:", pca.explained_variance_ratio_)
