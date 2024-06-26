@@ -1,0 +1,64 @@
+Modelele de clasificare sunt utilizate pentru a atribui o etichetă sau o clasă unei noi observații pe baza datelor de antrenament. Iată o privire mai detaliată asupra câtorva modele populare de clasificare, împreună cu exemple specifice:
+1. Regresia Logistică
+
+Regresia logistică este un model de clasificare liniară care estimează probabilitatea ca o observație să aparțină unei anumite clase.
+
+Exemplu:
+
+    Detecția de spam: Folosită pentru a determina dacă un email este spam sau nu pe baza unor caracteristici ale email-ului (de exemplu, prezența anumitor cuvinte, frecvența acestora, etc.).
+
+2. Arborii de Decizie (Decision Trees)
+
+Arborii de decizie sunt structuri de tip arbore în care fiecare nod intern reprezintă o întrebare bazată pe una dintre caracteristicile datelor, iar fiecare frunză reprezintă o etichetă de clasă.
+
+Exemplu:
+
+    Diagnosticul medical: Utilizați pentru a diagnostica boli pe baza simptomelor pacientului. Fiecare nod ar putea reprezenta o întrebare despre un simptom (de exemplu, „Pacientul are febră?”).
+
+3. Pădurile Aleatoare (Random Forests)
+
+Pădurile aleatoare combină mai mulți arbori de decizie pentru a îmbunătăți acuratețea și a reduce riscul de overfitting.
+
+Exemplu:
+
+    Clasificarea imaginii: Utilizate pentru a clasifica imagini în diferite categorii (de exemplu, identificarea obiectelor în imagini).
+
+4. Mașini de Suport Vectorial (Support Vector Machines, SVM)
+
+SVM sunt modele de clasificare care găsesc un hiperplan optim care separă clasele în spațiul caracteristicilor.
+
+Exemplu:
+
+    Recunoașterea facială: Folosită pentru a clasifica imagini de față ca aparținând unei anumite persoane sau nu.
+
+5. K-Nearest Neighbors (K-NN)
+
+K-NN este un algoritm de clasificare care atribuie o clasă pe baza etichetelor celor mai apropiați k vecini din setul de date de antrenament.
+
+Exemplu:
+
+    Recomandarea de produse: Utilizat pentru a recomanda produse similare unui utilizator bazându-se pe preferințele altor utilizatori cu gusturi similare.
+
+6. Naive Bayes
+
+Naive Bayes este un clasificador probabilistic bazat pe teorema lui Bayes, care face presupunerea simplificată că toate caracteristicile sunt independente.
+
+Exemplu:
+
+    Clasificarea documentelor: Utilizat pentru clasificarea automată a documentelor sau a email-urilor în categorii (de exemplu, spam, sport, politică).
+
+7. Rețele Neuronale (Neural Networks)
+
+Rețelele neuronale sunt modele complexe inspirate de rețelele neuronale biologice, capabile să captureze relații complexe în date.
+
+Exemplu:
+
+    Recunoașterea vorbirii: Utilizate pentru a transcrie automat vorbirea în text.
+
+8. Metode Ensemble (Ensemble Methods)
+
+Metodele ensemble combină predicțiile mai multor modele pentru a îmbunătăți performanța. Exemplele includ bagging (de exemplu, Random Forest) și boosting (de exemplu, Gradient Boosting Machines, AdaBoost).
+
+Exemplu:
+
+    Detecția fraudei: Utilizate pentru a detecta tranzacții frauduloase în sistemele de plată online.
