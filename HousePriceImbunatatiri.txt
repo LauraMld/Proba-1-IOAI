@@ -1,0 +1,22 @@
+    Feature Engineering Avansat:
+        Creează noi caracteristici bazate pe cele existente. De exemplu, folosește relațiile dintre variabile, cum ar fi raportul între diferite dimensiuni ale casei (e.g., raportul dintre suprafața subsolului și cea totală) sau suma totală a zonelor finite din subsol.
+        Transformă variabilele puternic skewed folosind log-transform sau box-cox transform pentru a îmbunătăți simetria distribuției.
+
+    Imputare și Preprocesare Mai Avansate:
+        Utilizează KNN Imputer pentru imputarea valorilor lipsă, care poate capta mai bine relațiile dintre variabile decât imputarea simplă cu mediană sau modă.
+        Înlocuiește LabelEncoder cu OneHotEncoder pentru a transforma variabilele categorice în variabile binare, astfel evitând presupunerea ordinii implicite între categorii.
+
+    Utilizarea de Modele Ensemble:
+        Încearcă modele de tip boosting precum XGBoost, LightGBM sau CatBoost, care au obținut rezultate remarcabile în această competiție.
+        Construiește un ensemble de modele (de exemplu, combinând Random Forest, XGBoost și LightGBM) pentru a profita de punctele forte ale fiecărui model.
+
+    Tuning-ul Hiperparametrilor:
+        Utilizează GridSearchCV sau RandomizedSearchCV pentru a găsi setările optime ale hiperparametrilor pentru modelele tale. Aceasta poate îmbunătăți semnificativ performanța.
+
+    Valoarea Importanței Caracteristicilor:
+        Analizează importanța caracteristicilor și încearcă să elimini variabilele irelevante sau redundante. Acest lucru poate reduce overfitting-ul și poate îmbunătăți generalizarea modelului.
+
+Exemple de Notebook-uri de Succes:
+
+    Kenny's House Prices Notebook: Acesta oferă o abordare detaliată, incluzând feature engineering și utilizarea modelelor ensemble.
+    Advanced Regression Techniques by Abdalla: Acesta include utilizarea XGBoost și LightGBM, precum și alte tehnici avansate de preprocesare și modelare.
