@@ -1,0 +1,55 @@
+Recurrent Neural Networks (RNNs): Explained
+What are RNNs?
+
+Recurrent Neural Networks (RNNs) are a class of artificial neural networks designed for processing sequences of data. Unlike traditional feedforward neural networks, RNNs have connections that form directed cycles, allowing them to maintain a 'memory' of previous inputs. This makes them particularly well-suited for tasks where the order of the data is important.
+How do RNNs work?
+
+    Sequential Data Processing:
+        RNNs process input data in a sequential manner, where the output from the previous step is fed as input to the current step.
+        They have a hidden state that captures information from previous time steps, which is updated at each time step.
+
+    Recurrent Connection:
+        At each time step tt, the network takes an input xtxt​ and the hidden state from the previous time step ht−1ht−1​ to produce the current hidden state htht​. This is typically represented as:
+        ht=σ(Whht−1+Wxxt+b)
+        ht​=σ(Wh​ht−1​+Wx​xt​+b)
+        where WhWh​ and WxWx​ are weight matrices, bb is a bias term, and σσ is an activation function (like tanh or ReLU).
+
+    Output Generation:
+        The hidden state htht​ can then be used to produce an output ytyt​:
+        yt=softmax(Wyht+by)
+        yt​=softmax(Wy​ht​+by​)
+        where WyWy​ is a weight matrix for the output layer.
+
+    Backpropagation Through Time (BPTT):
+        To train RNNs, a variant of backpropagation called Backpropagation Through Time is used, which takes into account the sequential nature of the data and the recurrence.
+
+Common Issues with Vanilla RNNs
+
+    Vanishing and Exploding Gradients:
+        Gradients can become extremely small (vanish) or large (explode) during backpropagation, making training difficult.
+
+Advanced RNN Architectures
+
+To address some of the limitations of vanilla RNNs, more advanced architectures have been developed:
+
+    Long Short-Term Memory (LSTM):
+        LSTMs introduce a cell state and various gates (input, forget, output gates) that regulate the flow of information, helping to retain long-term dependencies.
+    Gated Recurrent Unit (GRU):
+        GRUs are a simplified version of LSTMs with fewer gates, which also aim to mitigate the vanishing gradient problem while retaining crucial information.
+
+Applications of RNNs
+
+RNNs are widely used in various domains, including:
+
+    Natural Language Processing (NLP):
+        Tasks like language modeling, text generation, machine translation, and sentiment analysis.
+    Speech Recognition:
+        Converting spoken language into text.
+    Time Series Prediction:
+        Forecasting stock prices, weather prediction, and any other domain where time-ordered data is analyzed.
+    Video Analysis:
+        Understanding and generating sequences of frames in video data.
+
+Conclusion
+
+RNNs are powerful tools for sequential data due to their ability to maintain and update a hidden state that captures temporal dependencies. While they come with challenges such as vanishing and exploding gradients, advancements like LSTMs and GRUs have significantly improved their performance. Their applications span a wide range of fields, making them essential for many modern AI tasks.
