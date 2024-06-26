@@ -1,0 +1,29 @@
+Pregătirea pentru un concurs de machine learning axat pe feature engineering necesită o abordare metodică și practică. Iată câteva aspecte cheie pe care ar trebui să le ai în vedere, împreună cu exemple de proiecte Kaggle care îți pot fi de ajutor:
+Gestionarea Datelor Nule
+
+    Identificare: Determină unde apar date nule în setul tău de date.
+    Imputare:
+        Valori numerice: Înlocuirea cu mediana, media sau o valoare specifică (ex: zero).
+        Valori categorice: Înlocuirea cu cea mai frecventă valoare (moda) sau o categorie specială (ex: "Unknown").
+        Metode avansate: Utilizarea modelelor de imputare, cum ar fi KNN imputing sau regresie.
+
+Diverse Tipuri de Inputuri
+
+    Date Categoriale: One-hot encoding, label encoding.
+    Date Numerice: Normalizare sau standardizare (Min-Max scaling, Z-score).
+    Date Temporale: Extrage caracteristici adiționale (anul, luna, ziua săptămânii, ora).
+    Date Text: Într-o primă etapă, evită utilizarea acestora, dar ulterior poți folosi tehnici ca TF-IDF, embeddings (Word2Vec, GloVe), sau modele de limbaj (BERT).
+
+Vizualizarea Distribuției Datelor
+
+    Utilizează grafice de tip histograme, boxplot-uri și pair plots pentru a înțelege distribuția și relațiile dintre variabile.
+    Utilizează diagrame de corelație pentru a detecta relații puternice între caracteristici.
+
+Detectarea și Gestionarea Outliers-urilor
+
+    Detectare: Boxplot-uri, Z-score, IQR.
+    Gestionare: Eliminarea outliers-urilor sau transformarea valorilor (log transform, Winsorizing).
+
+Echilibrarea Datelor
+
+    Dacă datele sunt dezechilibrate (ex: clasificare binară cu clase disproporționate), utilizează tehnici de resampling (undersampling, oversampling), sau metode avansate cum ar fi SMOTE.
