@@ -1,0 +1,72 @@
+Gradient Descent este un algoritm de optimizare utilizat pe scară largă în machine learning pentru a minimiza funcțiile de cost. Iată o explicație detaliată a matematicii din spatele Gradient Descent:
+Context și Introducere
+
+Gradient Descent este utilizat pentru a găsi valorile minime ale unei funcții. În machine learning, de obicei, dorim să minimizăm o funcție de cost (sau funcție de pierdere) care măsoară cât de bine performează modelul nostru în raport cu datele de antrenament.
+Conceptul de Bază
+
+Să presupunem că avem o funcție de cost J(θ)J(θ), unde θθ reprezintă parametrii modelului nostru. Scopul este să găsim valorile pentru θθ care minimizează J(θ)J(θ).
+Derivate Parțiale și Gradientul
+
+Gradientul funcției de cost este un vector de derivate parțiale care indică direcția de creștere maximă a funcției. Dacă J(θ)J(θ) este o funcție de mai multe variabile (parametri), gradientul este dat de:
+
+∇J(θ)=[∂J(θ)∂θ1,∂J(θ)∂θ2,…,∂J(θ)∂θn]∇J(θ)=[∂θ1​∂J(θ)​,∂θ2​∂J(θ)​,…,∂θn​∂J(θ)​]
+Algoritmul Gradient Descent
+
+Algoritmul Gradient Descent începe cu o estimare inițială a parametrilor θθ și iterativ își actualizează valorile pentru a reduce funcția de cost. Actualizarea parametrilor se face conform următoarei reguli:
+
+θ:=θ−α∇J(θ)θ:=θ−α∇J(θ)
+
+unde:
+
+    αα este rata de învățare, un parametru scalar care controlează pasul actualizării.
+    ∇J(θ)∇J(θ) este gradientul funcției de cost.
+
+Pași Detaliați
+
+    Inițializarea Parametrilor:
+        Alege o valoare inițială pentru θθ.
+
+    Calcularea Gradientului:
+        Calculează gradientul funcției de cost în punctul curent θθ:
+        ∇J(θ)=[∂J(θ)∂θ1,∂J(θ)∂θ2,…,∂J(θ)∂θn]∇J(θ)=[∂θ1​∂J(θ)​,∂θ2​∂J(θ)​,…,∂θn​∂J(θ)​]
+
+    Actualizarea Parametrilor:
+        Actualizează parametrii utilizând regula:
+        θ:=θ−α∇J(θ)θ:=θ−α∇J(θ)
+
+    Convergență:
+        Repetă pașii 2 și 3 până când gradientul este suficient de mic sau până când schimbările în θθ sunt neglijabile.
+
+Exemplu de Regresie Liniară
+
+Pentru a face lucrurile mai concrete, să luăm un exemplu simplu de regresie liniară cu o funcție de cost de formă:
+
+J(θ)=12m∑i=1m(hθ(x(i))−y(i))2J(θ)=2m1​∑i=1m​(hθ​(x(i))−y(i))2
+
+unde:
+
+    hθ(x)=θ0+θ1xhθ​(x)=θ0​+θ1​x este funcția ipotezei (predicția modelului).
+    mm este numărul de exemple de antrenament.
+    x(i)x(i) și y(i)y(i) sunt valorile caracteristicii și respectiv, eticheta pentru exemplul ii.
+
+Gradientul pentru fiecare parametru θjθj​ este:
+
+∂J(θ)∂θj=1m∑i=1m(hθ(x(i))−y(i))xj(i)∂θj​∂J(θ)​=m1​∑i=1m​(hθ​(x(i))−y(i))xj(i)​
+
+Algoritmul Gradient Descent pentru acest caz devine:
+
+θj:=θj−α1m∑i=1m(hθ(x(i))−y(i))xj(i)θj​:=θj​−αm1​∑i=1m​(hθ​(x(i))−y(i))xj(i)​
+Tipuri de Gradient Descent
+
+    Batch Gradient Descent:
+        Folosește întregul set de date pentru a calcula gradientul. Este precis, dar poate fi lent pentru seturi de date mari.
+
+    Stochastic Gradient Descent (SGD):
+        Actualizează parametrii folosind un singur exemplu de antrenament la fiecare pas. Este mai rapid, dar poate oscila în jurul minimului.
+
+    Mini-Batch Gradient Descent:
+        Compromis între cele două, folosind un subset de date (mini-lot) pentru fiecare actualizare. Este eficient și stabilizează oscilațiile.
+
+Concluzie
+
+Gradient Descent este un algoritm esențial în machine learning, utilizat pentru a optimiza funcțiile de cost prin actualizarea iterativă a parametrilor în direcția gradientului descrescător. Înțelegerea matematicii din spatele acestui algoritm este crucială pentru aplicarea eficientă și adaptarea sa la diverse probleme și modele de machine learning.
